@@ -4,9 +4,9 @@ import State, { IState } from '../models/State';
 export const createState = async (req: Request, res: Response) => {
     try {
         const { name, description, status, createdBy } = req.body;
-        if(name.length <= 4){
-            res.status(400).json({message: "Name should be atlest 5 characters"})
-        }
+        // if(name.length <= 4){
+        //     res.status(400).json({message: "Name should be atlest 5 characters"})
+        // }
         const state: IState = new State({ name, description, status, createdBy });
         await state.save();
         res.status(201).json(state);
