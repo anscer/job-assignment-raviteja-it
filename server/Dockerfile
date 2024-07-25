@@ -1,6 +1,6 @@
 FROM node:20
 WORKDIR /usr/src/app
-COPY package*.json index.ts ./
+COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 5000

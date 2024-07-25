@@ -11,7 +11,7 @@ export const createState = async (req: Request, res: Response) => {
         await state.save();
         res.status(201).json(state);
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({message: error});
     }
 };
 
@@ -20,7 +20,7 @@ export const getStates = async (req: Request, res: Response) => {
         const states = await State.find();
         res.status(200).json(states);
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({message: error});
     }
 };
 
@@ -30,7 +30,7 @@ export const updateState = async (req: Request, res: Response) => {
         const updatedState = await State.findByIdAndUpdate(id, req.body, { new: true });
         res.status(200).json(updatedState);
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({message: error});
     }
 };
 
@@ -40,6 +40,6 @@ export const deleteState = async (req: Request, res: Response) => {
         await State.findByIdAndDelete(id);
         res.status(200).json({ message: 'State deleted successfully' });
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({message: error});
     }
 };
